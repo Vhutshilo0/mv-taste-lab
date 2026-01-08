@@ -3,10 +3,14 @@ import express, { Request, Response } from "express";
 import dotenv from "dotenv";
 dotenv.config();
 
+import recommendRouter from "./routes/recommend";
+
+
 const app = express();
 
 // Middleware to parse JSON bodies
 app.use(express.json());
+app.use("/api/recommend", recommendRouter);
 
 // Health check endpoint
 app.get("/health", (req: Request, res: Response) => {
