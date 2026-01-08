@@ -1,0 +1,28 @@
+{
+  "name": "mv-taste-lab",
+  "version": "1.0.0",
+  "description": "MV Taste Lab is a multi-tenant drink recommendation backend system inspired by modern hospitality technology platforms such as Palé Technologies.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build" : "tsc",
+    "start": "node dist/index.js"
+    
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vhutshilo0/mv-taste-lab.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Vhutshilo0/mv-taste-lab/issues"
+  },
+  "homepage": "https://github.com/Vhutshilo0/mv-taste-lab#readme",
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+
+}
