@@ -1,23 +1,26 @@
 import express, { Request, Response } from "express";
-
 import dotenv from "dotenv";
-dotenv.config();
+import insightsRouter from "./routes/insight";
 
 import recommendRouter from "./routes/recommend";
 
+dotenv.config();
 
 const app = express();
+app.use("/api/insight", insightsRouter);
 
-// Middleware to parse JSON bodies
+// Parse incoming JSON requests
 app.use(express.json());
-app.use("/api/recommend", recommendRouter);
+
+// Mount API routes
+app.use("/api", recommendRouter);
 
 // Health check endpoint
 app.get("/health", (req: Request, res: Response) => {
   res.status(200).json({ status: "ok" });
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 
 app.listen(PORT, () => {
   console.log(`MV Taste Lab API running on port ${PORT}`);

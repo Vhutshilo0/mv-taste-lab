@@ -1,12 +1,22 @@
 import { Request, Response } from "express";
+import { getRecommendations, TasteProfile } from "../services/recommendService";
 
 export const recommendDrinks = async (req: Request, res: Response) => {
-  // TODO: Implement recommendation logic
-  const { sweetness, bitterness, fruitiness, dryness, strength } = req.body;
+  try {
+    const tenantId = Number(req.body.tenant_id);
+    if (!tenantId) return res.status(400).json({ message: "tenant_id is required" });
 
-  // Temporary response
-  res.status(200).json({
-    message: "Recommendation logic not implemented yet",
-    input: { sweetness, bitterness, fruitiness, dryness, strength },
-  });
+    const profile: TasteProfile = req.body;
+
+    const { recommendations, explanation } = await getRecommendations(tenantId, profile);
+
+    res.status(200).json({
+      tenant_id: tenantId,
+      recommended_drinks: recommendations,
+      explanation,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server error" });
+  }
 };

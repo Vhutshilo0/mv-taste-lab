@@ -1,10 +1,12 @@
-import express from "express";
-import { validateTasteProfile } from "../middleware/validateTasteProfile";
+import { Router } from "express";
 import { recommendDrinks } from "../controllers/recommendController";
+import { validateRecommend } from "../middleware/validateRecommend";
 
-const router = express.Router();
+const router = Router();
 
-// POST /api/recommend
-router.post("/", validateTasteProfile, recommendDrinks);
+/**
+ * POST /api/recommend
+ */
+router.post("/recommend", validateRecommend, recommendDrinks);
 
 export default router;
