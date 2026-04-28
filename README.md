@@ -1,4 +1,4 @@
-# MV Taste Lab 
+# PALE drink recommendation system | MV Taste Lab 
 
 MV Taste Lab is a multi-tenant drink recommendation backend system inspired by modern hospitality technology platforms such as Palé Technologies.
 
